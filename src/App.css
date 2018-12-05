@@ -1,32 +1,71 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: Blender-Bold;
+  src: url(fonts/blender-pro-bold.otf);
+}
+@font-face {
+  font-family: Blender-Normal;
+  src: url(fonts/blender-pro-normal.otf);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+body{
+  margin: 0;
+  padding:0;
+  height: 100vh;
+  background: #444444;
+  color: #0A304E;
 }
+.App{
+  background: white;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  max-width: 1000px;
+  margin: 40px auto;
+  font-family: Blender-Normal;
+
+}
+.Dropdown-menu{
+  position: absolute;
+  background: #fff;
+  width: 200px;
+  border: 1px solid #B4B4B4;
+  cursor: pointer;
+  left: 0;
+  right: 0;
+}
+.Dropdown-root {
+  position: relative;
+  cursor: pointer;
+
+}
+@media (max-width: 550px) {
+  .Dropdown-root{
+    grid-row: 2;
+    grid-column: span 2;
+    margin-left: calc(5% + 14px);
+  }
+
+}
+.Dropdown-control {
+  height: 40px;
+  border: 1px solid #B4B4B4;
+  width: 200px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #0A304E;
+  padding: 0;
 }
-
-.App-link {
-  color: #61dafb;
+.Dropdown-placeholder {
+  align-self: center;
+  font-family: Blender-Bold;
+  font-size: 20px;
+  margin-left: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Dropdown-arrow{
+  border-width: 8px 8px 0;
+  border-color: #0A304E transparent transparent;
+}
+.is-open .Dropdown-arrow{
+  border-width: 0 8px 8px;
+  border-color: transparent transparent #0A304E;
+}
+.white{
+  background: #fff;
 }
