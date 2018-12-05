@@ -1,5 +1,5 @@
 
-## React App that gets questions from json file and displays them and afterwards displays the answers
+## React App that gets questions from json file and displays the answers
 
 In the project directory, you can run:
 
