@@ -35,15 +35,14 @@ const Bar = styled.div`
 `;
 
 const QuestionWrap = styled.div`
-    margin: 0 1rem;
+    margin: 0 1.5rem;
     counter-reset: count; 
     list-style-type:none;
 `;
 
 const AnswersWrap = styled.div`
-    margin: auto;
+    margin: 0 1.5rem;
     border: 1px solid #B4B4B4;
-    max-width: 900px;
     box-shadow: 0px 1px 0px 0px rgba(180,180,180, 0.6);
     div{
         padding: 0  0 10px 20px;
