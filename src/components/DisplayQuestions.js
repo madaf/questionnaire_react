@@ -30,7 +30,7 @@ const Title = styled.p`
     margin: 0;
 `;
 
-const InputNumber = styled.div`
+const InputText = styled.div`
     height: 40px;
     border: 1px solid #B4B4B4;
     width: 200px;
@@ -49,8 +49,9 @@ const InputNumber = styled.div`
     }
 `;
 const RadioButtonsWrap = styled.div`
-    div:first-of-type{
+    div:nth-of-type(2){
         margin-bottom: 12px;
+        margin-top: 12px;
     }
     label{
         display: block;
@@ -105,7 +106,6 @@ export class DisplayQuestions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            //inputValue: '',
             dropdownValue: ''
         }
     };
@@ -154,7 +154,7 @@ export class DisplayQuestions extends React.Component {
                     : null
                 }
                 {this.props.type === 'text' 
-                    ? <InputNumber><input onChange = {this.handleChange} type = "number" /></InputNumber> 
+                    ? <InputText><input onChange = {this.handleChange} type = "text" /></InputText> 
                     : null
                 }
             </Wrap>

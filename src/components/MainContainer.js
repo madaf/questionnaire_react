@@ -62,10 +62,7 @@ const Button = styled.button`
     padding: 0.7rem 1rem;
     border-radius: 3px;
     border: none;
-    bottom: 15%;
-    @media (max-width: 550px) {
-        bottom: 10%;
-    }
+    bottom: 10%;
     :focus {
         outline: none;
     }
@@ -88,7 +85,7 @@ export class MainContainer extends React.Component {
         }
     };
     componentDidMount() {
-        fetch('https://bitbucket.org/bronstenkate/front-end-test/raw/b42db052ad57aef806b10c3dd84aca382fd85851/questions.json')
+        fetch('https://gist.githubusercontent.com/madaf/3f19902d23b87e64b93fc04f80ca6409/raw/d0fe28de28fb964e0223362262607f69656ad3bd/data_questionnaire.json')
         .then(response => response.json())
         .then(data => this.setState({ questions: data }));
     };
@@ -156,7 +153,7 @@ export class MainContainer extends React.Component {
         return(
             //display different content/style and toggle between components based on the showResults's state
             <MainContainerWrap>
-                <Bar>{this.state.showResults ? "Results" : "Calculate starting dose"}<span></span></Bar>
+                <Bar>{this.state.showResults ? "Results" : "Questionnaire"}<span></span></Bar>
                 {this.state.showResults 
                     ? <AnswersWrap>{ showQuestionsInAnswers }</AnswersWrap>  
                     : <QuestionWrap>{ showQuestions }</QuestionWrap>}
