@@ -73,7 +73,9 @@ const Button = styled.button`
         cursor: pointer;
     }
 `;
-
+//Define the state 
+//showResults is for toggle between displayQuestions and DisplayAnswers; 
+//answer1-3 - store the values from the DisplayQuestions component and using them as props in the DisplayAnswer
 export class MainContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -90,6 +92,7 @@ export class MainContainer extends React.Component {
         .then(response => response.json())
         .then(data => this.setState({ questions: data }));
     };
+    //got the values of the inputs from the DisplayQuestions component and stored them in the MainComponent state
     formChild1_dropdown = (param1) => {
         this.setState({
           answer1: param1
@@ -105,12 +108,15 @@ export class MainContainer extends React.Component {
           answer3: param3
         })
     };
+
+    //toggle between DisplayQuestions and DisplayAnswers
     handleClick = () => {
         this.setState({
             showResults: !this.state.showResults
         });
     };
     render() {
+        //loop through every object in the json and render it into a component; 
         const showQuestions = this.state.questions.map( item => (
             <DisplayQuestions
                 key = {item.question}
@@ -122,6 +128,8 @@ export class MainContainer extends React.Component {
                 callback3 = {this.formChild1_number}
             />
         ));
+        //loop through the questions to display each question on the DisplayAnswers based on the input type
+        //TODO: if they are more with the same input type => try to sort them by id also
         const showQuestionsInAnswers = this.state.questions.map( item => (
             item.inputType === "radio" 
                 ? <DisplayAnswers
@@ -146,6 +154,7 @@ export class MainContainer extends React.Component {
                 : null 
         ));
         return(
+            //display different content/style and toggle between components based on the showResults's state
             <MainContainerWrap>
                 <Bar>{this.state.showResults ? "Results" : "Calculate starting dose"}<span></span></Bar>
                 {this.state.showResults 
