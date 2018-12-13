@@ -30,7 +30,7 @@ const Title = styled.p`
     margin: 0;
 `;
 
-const InputNumber = styled.div`
+const InputText = styled.div`
     height: 40px;
     border: 1px solid #B4B4B4;
     width: 200px;
@@ -49,8 +49,9 @@ const InputNumber = styled.div`
     }
 `;
 const RadioButtonsWrap = styled.div`
-    div:first-of-type{
+    div:nth-of-type(2){
         margin-bottom: 12px;
+        margin-top: 12px;
     }
     label{
         display: block;
@@ -105,10 +106,10 @@ export class DisplayQuestions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: '',
             dropdownValue: ''
         }
     };
+    //takes the value from each input and uses them in the callback functions
     onSelect = (option) => {
         this.setState({
             dropdownValue: option
@@ -125,6 +126,7 @@ export class DisplayQuestions extends React.Component {
     render() {
         const defaultOption = this.state.dropdownValue;
 
+        //check if the input type is radio, if so loop through each element and create the html structure for that
         if (this.props.type === 'radio') {
             var inputRadio = this.props.answer.map( (elem,index) => (
                 <div key = {index}>
@@ -136,6 +138,7 @@ export class DisplayQuestions extends React.Component {
             ))
         }
         return (
+            //display the html structure based on the input type
             <Wrap>
                 <Title>{this.props.question}</Title>
                 {this.props.type === 'dropdown' 
@@ -151,7 +154,7 @@ export class DisplayQuestions extends React.Component {
                     : null
                 }
                 {this.props.type === 'text' 
-                    ? <InputNumber><input onChange = {this.handleChange} type = "number" /></InputNumber> 
+                    ? <InputText><input onChange = {this.handleChange} type = "text" /></InputText> 
                     : null
                 }
             </Wrap>
